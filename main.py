@@ -2,7 +2,7 @@ import cv2
 
 def main():
     # Open the default camera (usually camera index 0)
-    cap = cv2.VideoCapture("/dev/video1")
+    cap = cv2.VideoCapture(0)
 
     if not cap.isOpened():
         print("Error: Couldn't open the webcam.")
@@ -18,9 +18,9 @@ def main():
 
         # Process frame
         #--- TODO 
-        edges = cv2.Canny(frame,100,200)
+        # frame = cv2.Canny(frame,100,200)
         # Display the frame
-        cv2.imshow('Webcam', edges)
+        cv2.imshow('Webcam', frame)
 
         # Break the loop if 'q' key is pressed
         if cv2.waitKey(1) & 0xFF == ord('q'):
