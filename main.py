@@ -2,6 +2,7 @@ import cv2
 
 def main():
     # Open the default camera (usually camera index 0)
+    cv2.destroyAllWindows()
     cap = cv2.VideoCapture(0)
 
     if not cap.isOpened():
