@@ -16,8 +16,11 @@ def main():
             print("Error: Couldn't read frame from the webcam.")
             break
 
+        # Process frame
+        #--- TODO 
+        edges = cv2.Canny(frame,100,200)
         # Display the frame
-        cv2.imshow('Webcam', frame)
+        cv2.imshow('Webcam', edges)
 
         # Break the loop if 'q' key is pressed
         if cv2.waitKey(1) & 0xFF == ord('q'):
