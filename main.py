@@ -19,7 +19,7 @@ def main():
 
         # Process frame
         #--- TODO 
-        frame = cv2.Canny(frame,100,200)
+        frame = cv2.Canny(frame,69,69)
         # Display the frame
         cv2.imshow('Webcam', frame)
 
