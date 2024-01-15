@@ -14,12 +14,12 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
 
-# Create the database
-with app.app_context():
-    db.init_app(app)
-    db.create_all()
 
-# ... (previous code)
+
 
 if __name__ == '__main__':
+    # Create the database
+    with app.app_context():
+        db.init_app(app)
+        db.create_all()
     app.run(debug=True)
