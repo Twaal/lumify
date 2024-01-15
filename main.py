@@ -1,35 +1,28 @@
-import cv2
+import cv2 as cv
+import numpy as np
 
 def main():
-    # Open the default camera (usually camera index 0)
-    cv2.destroyAllWindows()
-    cap = cv2.VideoCapture(0)
 
+    cap = cv.VideoCapture(0)
     if not cap.isOpened():
-        print("Error: Couldn't open the webcam.")
-        return
-
+        print("Cannot open camera")
+        exit()
     while True:
-        # Read a frame from the webcam
+        # Capture frame-by-frame
         ret, frame = cap.read()
-
+        # if frame is read correctly ret is True
         if not ret:
-            print("Error: Couldn't read frame from the webcam.")
+            print("Can't receive frame (stream end?). Exiting ...")
             break
-
-        # Process frame
-        #--- TODO 
-        frame = cv2.Canny(frame,69,69)
-        # Display the frame
-        cv2.imshow('Webcam', frame)
-
-        # Break the loop if 'q' key is pressed
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        # Our operations on the frame come here
+        gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+        # Display the resulting frame
+        cv.imshow('frame', gray)
+        if cv.waitKey(1) == ord('q'):
             break
-
-    # Release the webcam and close the window
+    # When everything done, release the capture
     cap.release()
-    cv2.destroyAllWindows()
+    cv.destroyAllWindows()
 
 if __name__ == "__main__":
     main()
