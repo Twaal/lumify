@@ -1,6 +1,12 @@
 import cv2
+import os
 
-name = 'Theodor' #replace with your name
+name = input("Enter your name: ")
+print ("Hello {}. Press space to add photos".format(name))
+
+path = './dataset/' + name
+directory = os.path.dirname(path) 
+os.makedirs(directory, exist_ok=True) 
 
 cam = cv2.VideoCapture(0)
 
