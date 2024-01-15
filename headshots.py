@@ -1,13 +1,15 @@
 import cv2
 import os
-
+ # User input name
 name = input("Enter your name: ")
 print ("Hello {}. Press space to add photos".format(name))
 
+# Add directory if not already there
 path = './dataset/' + name
 directory = os.path.dirname(path) 
 os.makedirs(directory, exist_ok=True) 
 
+# Start the video capture
 cam = cv2.VideoCapture(0)
 
 cv2.namedWindow("press space to take a photo", cv2.WINDOW_NORMAL)
